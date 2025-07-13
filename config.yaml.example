@@ -1,0 +1,64 @@
+# Web Agent Configuration File Example
+# Copy this file to config.yaml and update with your actual values
+
+# OpenRouter.ai API Configuration
+openrouter:
+  api_key: "your_openrouter_api_key_here"  # Get from https://openrouter.ai/
+  base_url: "https://openrouter.ai/api/v1"
+  default_model: "google/gemini-2.0-flash-exp:free"
+  max_tokens: 4096
+  temperature: 0.7
+
+# GitHub Integration
+github:
+  # Personal access token for GitHub API (optional, for private repos)
+  access_token: "your_github_token_here"  # Get from GitHub Settings > Developer settings
+  # Default organization/user to browse (optional)
+  default_user: ""
+  # Local directory to clone repositories
+  repos_directory: "./repos"
+
+# Application Settings
+app:
+  # Host and port for the Flask backend
+  host: "0.0.0.0"
+  port: 5000
+  debug: false
+  # Secret key for Flask sessions (generate with: python3 -c "import secrets; print(secrets.token_hex(32))")
+  secret_key: "change_this_to_a_random_secret_key_in_production"
+  
+# File System Settings
+filesystem:
+  # Maximum file size for editing (in MB)
+  max_file_size: 10
+  # Allowed file extensions for editing
+  allowed_extensions:
+    - ".py"
+    - ".js"
+    - ".jsx"
+    - ".ts"
+    - ".tsx"
+    - ".html"
+    - ".css"
+    - ".scss"
+    - ".json"
+    - ".yaml"
+    - ".yml"
+    - ".md"
+    - ".txt"
+    - ".sh"
+    - ".dockerfile"
+    - ".gitignore"
+    - ".env"
+
+# Chat Settings
+chat:
+  # Maximum conversation history to maintain
+  max_history: 50
+  # System prompt for the AI assistant
+  system_prompt: |
+    You are a helpful coding assistant integrated into a web-based IDE. 
+    You can help with code analysis, debugging, suggestions, and explanations.
+    You have access to the current repository structure and file contents.
+    Provide concise, actionable advice and code suggestions.
+
